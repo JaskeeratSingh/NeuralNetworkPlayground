@@ -6,6 +6,15 @@
 
 ---
 
+
+
+ Hyperparameters |        Training data entered by user         |  Learned decision boundary
+:--------:|:--------------------------------------------:|:-------------------------:
+ 4 Hidden Neurons <br> 100,000 Iterations <br> 0.1 Learning rate |        <img src = "src/example1.png">        |  <img src = "src/sol1.png"> 
+200 Hidden Neurons <br> 1,000,000 Iterations <br> 0.1 Learning rate|               <img src = "src/example2.png"> |<img src = "src/sol2.png">
+
+
+
 ## Motivation
 
 The way Machine learning is used to solve problems such as image recognition which are difficult to approach using
@@ -47,29 +56,7 @@ affect learning in Neural Networks. Also there is something extremely satisfying
 boundary. I hope to be able to put out such a visualization in the GUI stage of this project.
 
 ---
-
-## User stories successfully implemented in Phase 1:
-
-- [x] As a user, I want to navigate the program via the console
-- [x] As a user, I want to go back to the start menu after training
-- [x] As a user, I want to can add points to create a dataset to train the Neural Network, **adds Xs to Y**
-- [x] As a user, I want to modify the Number of Hidden Neurons in Neural network to increase decision boundary complexity
-- [x] As a user, I want to modify the Number of Iterations to train for
-- [x] As a user, I want to modify the LearningRate of the Neural Network
-
-## User stories successfully implemented in Phase 2:
-
-- [x] As a user, I want to be able to save my trained Neural Network and created dataset 
-- [x] As a user, I want to be able to load my datasets and trained network from previous session
-
-## User stories successfully implemented in Phase 3:
-
-- [x] As a user, I want to create a dataset (such as the spiral one in the demo above) by adding points with mouse clicks on their
-  screen to train the Neural Network on
-- [x] As a user, I want to see decision boundary of the network in the end
----
-
-## Instructions for grader:
+## User Guide:
 
 - Start by clicking on create a new session
 - You are now greeted by a screen to help you create a dataset
@@ -88,52 +75,6 @@ boundary learnt by the Neural Network
 click on Train
 - You will notice the model only learns a linear decision boundary this time around
 - Save and exit the application, reopen and click load, you will see the saved decision boundary
-
-## Notes for grader:
- 
-- Adding points on the screen which creates my dataset, covers my add multiple Xs (points) to Ys (dataset) requirement.
-- The decision boundary shown at the end covers my visual requirement
-- Loading can be done at the start of the application
-- Saving can be done at the end of the application on the decision boundary slide
-
-## Phase 4: Task 2
-
-This task initially had me stumped since I was only allowed to make event logs from the main
-package and not from the UI. The user stories I wanted event logs for were when the user finishes 
-creating their dataset "Adding Xs (points) to Y(Dataset)", and second when they are drawing their decision boundary, 
-since here the dataset is used to train the Neural network. "Xs (points) are retrieved from Y(dataset)" to train the 
-Neural network 'Number of entered Iterations' times.
-
-The challenge was, since the mouse clicks to add the points occurred purely in the UI class, 
-and even drawing the decision boundary was happening in the UI class, I initially couldn't 
-find a way to make Event Logs. 
-
-Solution: However, I realized that although the dataset was made in UI via points, the Matrix 
-constructor which was in model was in essence being called at the completion of adding all Xs to Y.
-It is impossible to log the instance of adding each individual point(X) to the dataset, since it occurs in UI, but
-logging when all of it was done was possible with this method.
-
-Similarly, although I can't figure out the exact time the decision boundary is drawn, I initially, 
-thought of putting an event log inside my Neural network train function in the model package, since
-the decision boundary is drawn right after training. However, the train function is called Number of iterations
-times but we don't want to print again and again. Hence, I decided to put the event log in my Neural network
-constructor. The moment the Neural network is constructed, training and plotting the decision boundary begins.
-Hence, it would only be called once.
-
-In hindsight, it does not log the exact time the decision boundary is made, but the time training begins, for most, 
-practical purposes on the scale of my application, training takes a second or less, hence it is negligible, but for
-larger datasets, where training time is significant, my approach would break down.
-
-Here is what my Logs look like at the closing of the application: 
-
-- Thu Aug 11 14:06:53 PDT 2022
-Points added to create Class one dataset
-
-- Thu Aug 11 14:06:53 PDT 2022
-Points added to create Class two dataset
-
-- Thu Aug 11 14:06:56 PDT 2022
-Neural network created, training to draw decision boundary!
 
 ## UML Diagram
 
