@@ -1,0 +1,9 @@
+{
+    "hiddenBias": [[-0.05722905933008926]],
+    "outputBias": [[0.9119489098430649]],
+    "inputNodesNum": 1,
+    "hiddenNodesNum": 1,
+    "outputNodesNum": 1,
+    "outputWeights": [[2.6]],
+    "hiddenWeights": [[1]]
+}
